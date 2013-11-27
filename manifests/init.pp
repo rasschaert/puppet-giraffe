@@ -37,5 +37,26 @@
 #
 class giraffe {
 
+  package { 'giraffe':
+    ensure  => present,
+    require => Package['httpd'],
+  }
 
+  $documentroot = $::osfamily ? {
+    'RedHat'  => '/var/www/html',
+    'FreeBSD' => '/usr/local/www/apache22/data',
+    default   => '/var/www',
+  }
+
+  $apacheuser = $::osfamily ? {
+    'Debian'  => 'www-data',
+    'FreeBSD' => 'www',
+    default   => 'apache',
+  }
+
+  file { "${::giraffe::documentroot}/dashboard.js":
+    ensure  => file,
+    owner   => $::giraffe::apacheuser,
+    content => template('giraffe/dashboard.js.erb'),
+  }
 }
