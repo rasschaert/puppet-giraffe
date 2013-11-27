@@ -54,7 +54,7 @@ class giraffe {
     default   => 'apache',
   }
 
-  file { "${::giraffe::documentroot}/dashboard.js":
+  file { "${::giraffe::documentroot}/giraffe/dashboard.js":
     ensure  => file,
     owner   => $::giraffe::apacheuser,
     content => template('giraffe/dashboard.js.erb'),
