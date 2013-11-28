@@ -35,7 +35,9 @@
 #
 # Copyright 2013 Kenny Rasschaert, unless otherwise noted.
 #
-class giraffe {
+class giraffe (
+  $graphite_url = 'demo',
+){
 
   package { 'giraffe':
     ensure  => present,
