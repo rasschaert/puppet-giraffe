@@ -37,6 +37,7 @@
 #
 class giraffe (
   $graphite_url = 'demo',
+  $dashboards,
 ){
 
   package { 'giraffe':
@@ -61,4 +62,21 @@ class giraffe (
     owner   => $::giraffe::apacheuser,
     content => template('giraffe/dashboards.js.erb'),
   }
+
+  define dashboard (
+    $name,
+    $refresh = 5000,
+    $scheme,
+    $dash_graphite_url,
+    $description,
+    $metrics,
+  ) {}
+
+  define metric (
+    $alias = $name,
+    $target,
+    $description,
+    $summary,
+    $summary_formatter,
+  ) {}
 }
