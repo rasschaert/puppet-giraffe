@@ -2,7 +2,7 @@ var graphite_url = "<%= @graphite_url %>";
 
 var dashboards = 
 [
-  <% @::giraffe::dashboards.each do |dash| -%>
+  <% @dashboards.each do |dash| -%>
     <%= dash %>
   { "name": "<%= dash.name %>",
     <% if dash.refresh %>"refresh": <%= dash.refresh %>,<% end %>
