@@ -55,6 +55,7 @@ class giraffe (
     'Debian'  => 'www-data',
     'FreeBSD' => 'www',
     default   => 'apache',
+  }
 
   file { "${::giraffe::documentroot}/giraffe/dashboards.js":
     ensure  => file,
