@@ -3,29 +3,28 @@ var graphite_url = "<%= @graphite_url %>";
 var dashboards = 
 [
   <% @dashboards.each do |dash| -%>
-    <%= dash %>
-  { "name": "<%= dash.name %>",
-    <% if dash.refresh %>"refresh": <%= dash.refresh %>,<% end %>
-    <% if dash.scheme %>"scheme": "<%= dash.scheme %>",<% end %>
-    <% if dash.graphite_url %>"graphite_url": "<%= dash.graphite_url %>",<% end %>
-    "description": "<%= dash.description %>",
+  { "name": "<%= dash['name'] %>",
+    <% if dash['refresh'] %>"refresh": <%= dash['refresh'] %>,<% end %>
+    <% if dash['scheme'] %>"scheme": "<%= dash['scheme'] %>",<% end %>
+    <% if dash['graphite_url'] %>"graphite_url": "<%= dash['graphite_url'] %>",<% end %>
+    "description": "<%= dash['description'] %>",
     "metrics": 
     [
-      <%= dash.metrics.each do |metric| -%>
+      <% dash['metrics'].each do |metric| -%>
       {
-        "alias": "<%= metric.alias %>",
-        "target": "<%= metric.target %>",
-        "description": "<%= metric.description %>",
-        <% if metric.summary %>"summary": "<%= metric.summary %>",<% end %>
-        <% if metric.summary_formatter %>"summary_formatter": <%= metric.summary_formatter %>,<% end %>
-        <% if metric.renderer %>"renderer": "<%= metric.renderer %>",<% end %>
-        <% if metric.unstack %>"unstack": <%= metric.unstack %>,<% end %>
-        <% if metric.interpolation %>"interpolation": "<%= metric.interpolation %>",<% end %>
-        <% if metric.stroke %>"stroke": <%= metric.stroke %>,<% end %>
-        <% if metric.min %>"min": "<%= metric.min %>",<% end %>
-        <% if metric.height %>"height": "<%= metric.height %>",<% end %>
-        <% if metric.hover_formatter %>"hover_formatter": <%= metric.hover_formatter %>,<% end %>
-        <% if metric.null_as %>"null_as": <%= metric.null_as %>,<% end %>
+        "alias": "<%= metric['alias'] %>",
+        "target": "<%= metric['target'] %>",
+        "description": "<%= metric['description'] %>",
+        <% if metric['summary'] %>"summary": "<%= metric['summary'] %>",<% end %>
+        <% if metric['summary_formatter'] %>"summary_formatter": <%= metric['summary_formatter'] %>,<% end %>
+        <% if metric['renderer'] %>"renderer": "<%= metric['renderer'] %>",<% end %>
+        <% if metric['unstack'] %>"unstack": <%= metric['unstack'] %>,<% end %>
+        <% if metric['interpolation'] %>"interpolation": "<%= metric['interpolation'] %>",<% end %>
+        <% if metric['stroke'] %>"stroke": <%= metric['stroke'] %>,<% end %>
+        <% if metric['min'] %>"min": "<%= metric['min'] %>",<% end %>
+        <% if metric['height'] %>"height": "<%= metric['height'] %>",<% end %>
+        <% if metric['hover_formatter'] %>"hover_formatter": <%= metric['hover_formatter'] %>,<% end %>
+        <% if metric['null_as'] %>"null_as": <%= metric['null_as'] %>,<% end %>
       },
       <% end -%>
     ]
