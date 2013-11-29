@@ -38,7 +38,7 @@
 class giraffe (
   $graphite_url = 'demo',
   $dashboards,
-){
+) {
 
   package { 'giraffe':
     ensure  => present,
@@ -55,7 +55,6 @@ class giraffe (
     'Debian'  => 'www-data',
     'FreeBSD' => 'www',
     default   => 'apache',
-  }
 
   file { "${::giraffe::documentroot}/giraffe/dashboards.js":
     ensure  => file,
@@ -63,20 +62,4 @@ class giraffe (
     content => template('giraffe/dashboards.js.erb'),
   }
 
-  define dashboard (
-    $name,
-    $refresh = 5000,
-    $scheme,
-    $dash_graphite_url,
-    $description,
-    $metrics,
-  ) {}
-
-  define metric (
-    $alias = $name,
-    $target,
-    $description,
-    $summary,
-    $summary_formatter,
-  ) {}
 }
