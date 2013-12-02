@@ -36,8 +36,10 @@
 # Copyright 2013 Kenny Rasschaert, unless otherwise noted.
 #
 class giraffe (
-  $graphite_url = 'demo',
-  $dashboards = [
+  $graphite_url    = 'demo',
+  $override_scheme = false,
+  $scheme          = 'spectrum14',
+  $dashboards      = [
     {
       name        =>'Demo',
       refresh     => 5000,

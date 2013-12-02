@@ -67,7 +67,7 @@ var dashboards =
         "null_as": <%= metric['null_as'] %>,
 <% end -%>
 <% if metric['scheme'] -%>
-    "scheme": "<%= metric['scheme'] %>",
+        "scheme": "<%= metric['scheme'] %>",
 <% end -%>
       },
 <% end -%>
@@ -76,6 +76,9 @@ var dashboards =
 <% end -%>
 ];
 
+<% if @override_scheme -%>
+var scheme = "<%= @scheme %>"
+<% else -%>
 var scheme = [
               '#423d4f',
               '#4a6860',
@@ -87,6 +90,7 @@ var scheme = [
               '#963b20',
               '#7c2626',
               ].reverse();
+<% end -%>
 
 function relative_period() { return (typeof period == 'undefined') ? 1 : parseInt(period / 7) + 1; }
 function entire_period() { return (typeof period == 'undefined') ? 1 : period; }
