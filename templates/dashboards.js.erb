@@ -28,8 +28,8 @@ var dashboards =
 <% end -%>
 <% if metric['targets'] -%>
         "targets": [
-<% metric['targets'].each do |targ| %>"
-          <%= targ %>",
+<% metric['targets'].each do |targ| %>
+          "<%= targ %>",
 <% end -%>
         ],
 <% end -%>
