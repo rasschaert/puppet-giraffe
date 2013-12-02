@@ -96,6 +96,7 @@ class giraffe (
     ensure  => file,
     owner   => $::giraffe::apacheuser,
     content => template('giraffe/dashboards.js.erb'),
+    require => Package['giraffe'],
   }
 
 }
