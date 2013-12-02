@@ -14,7 +14,7 @@ include 'giraffe'
 *Specify your own dashboards and metrics*
 ```puppet
 class { 'giraffe':
-  graphite_url => hiera('graphite_url'),
+  graphite_url => 'http://graphite.example.com',
   dashboards   => [
     {
       name        =>'Dashboard 1',
@@ -35,7 +35,7 @@ class { 'giraffe':
           target        => 'box1.box1_example_com.load.load.midterm',
           description   => 'second metric',
         },
-      ]
+      ],
     },
   ],
 }
