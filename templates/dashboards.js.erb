@@ -66,6 +66,9 @@ var dashboards =
 <% if metric['null_as'] -%>
         "null_as": <%= metric['null_as'] %>,
 <% end -%>
+<% if metric['scheme'] -%>
+    "scheme": "<%= metric['scheme'] %>",
+<% end -%>
       },
 <% end -%>
     ]
