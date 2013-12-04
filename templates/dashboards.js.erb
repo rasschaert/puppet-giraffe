@@ -1,6 +1,6 @@
 var graphite_url = "<%= @graphite_url %>";
 
-var dashboards = 
+var dashboards =
 [
 <% @dashboards.each do |dash| -%>
   { "name": "<%= dash['name'] %>",
@@ -16,7 +16,7 @@ var dashboards =
 <% if dash['description'] -%>
     "description": "<%= dash['description'] %>",
 <% end -%>
-    "metrics": 
+    "metrics":
     [
 <% dash['metrics'].each do |metric| -%>
       {
