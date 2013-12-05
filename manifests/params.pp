@@ -2,9 +2,9 @@
 # Default parameters for the giraffe class
 #
 class giraffe::params {
-  $graphite_url    = 'demo',
-  $override_scheme = false,
-  $scheme          = 'spectrum14',
+  $graphite_url    = 'demo'
+  $override_scheme = false
+  $scheme          = 'spectrum14'
   $dashboards      = [
     {
       name        =>'Demo',
@@ -40,5 +40,5 @@ class giraffe::params {
         },
       ]
     },
-  ],
+  ]
 }
